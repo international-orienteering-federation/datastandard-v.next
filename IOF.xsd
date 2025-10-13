@@ -1717,6 +1717,13 @@
           </xsd:documentation>
         </xsd:annotation>
       </xsd:element>
+      <xsd:element name="BibNumber" type="xsd:string" minOccurs="0">
+        <xsd:annotation>
+          <xsd:documentation>
+            The bib number of the team. If each team member has a unique bib number, use the BibNumber of the TeamEntryPerson element.
+          </xsd:documentation>
+        </xsd:annotation>
+      </xsd:element>
       <xsd:element name="TeamEntryPerson" type="TeamEntryPerson" minOccurs="0" maxOccurs="unbounded">
         <xsd:annotation>
           <xsd:documentation>
@@ -1816,6 +1823,13 @@
         <xsd:annotation>
           <xsd:documentation>
             Defines the person's starting order within a team at a parallel relay leg.
+          </xsd:documentation>
+        </xsd:annotation>
+      </xsd:element>
+      <xsd:element name="BibNumber" type="xsd:string" minOccurs="0">
+        <xsd:annotation>
+          <xsd:documentation>
+            The bib number that the team member is wearing.
           </xsd:documentation>
         </xsd:annotation>
       </xsd:element>
@@ -2142,7 +2156,7 @@
       <xsd:element name="BibNumber" type="xsd:string" minOccurs="0">
         <xsd:annotation>
           <xsd:documentation>
-            The bib number that the members of the team are wearing. If each team member has a unique bib number, use the BibNumber of the TeamMemberStart element.
+            The bib number that the members of the team are wearing. If each team member has a unique bib number, use the BibNumber of the TeamMemberRaceStart element.
           </xsd:documentation>
         </xsd:annotation>
       </xsd:element>
