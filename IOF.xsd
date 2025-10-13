@@ -3022,17 +3022,17 @@
       </xsd:documentation>
     </xsd:annotation>
     <xsd:sequence>
+      <xsd:element name="ControlCode" type="xsd:string">
+        <xsd:annotation>
+          <xsd:documentation>
+            The code of the control that this answer corresponds to, matching the Control element in CourseControl.
+          </xsd:documentation>
+        </xsd:annotation>
+      </xsd:element>
       <xsd:element name="Answer" type="xsd:string">
         <xsd:annotation>
           <xsd:documentation>
             The answer that the competitor selected. If the competitor did not give any answer, use an empty string.
-          </xsd:documentation>
-        </xsd:annotation>
-      </xsd:element>
-      <xsd:element name="CorrectAnswer" type="xsd:string">
-        <xsd:annotation>
-          <xsd:documentation>
-            The correct answer. If no answer is correct, use an empty string.
           </xsd:documentation>
         </xsd:annotation>
       </xsd:element>
@@ -3936,6 +3936,13 @@
         <xsd:annotation>
           <xsd:documentation>
             The score of the control in score-O events.
+          </xsd:documentation>
+        </xsd:annotation>
+      </xsd:element>
+      <xsd:element name="CorrectAnswer" type="xsd:string" minOccurs="0">
+        <xsd:annotation>
+          <xsd:documentation>
+            The correct answer for a Trail-O control. If no answer is correct (voided control), use an empty string or use the voided attribute.
           </xsd:documentation>
         </xsd:annotation>
       </xsd:element>
