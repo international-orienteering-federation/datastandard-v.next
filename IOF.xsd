@@ -3984,6 +3984,13 @@
         </xsd:documentation>
       </xsd:annotation>
     </xsd:attribute>
+    <xsd:attribute name="voided" type="xsd:boolean" use="optional" default="false">
+      <xsd:annotation>
+        <xsd:documentation>
+          Indicates that this control has been voided. For Trail-O, this means no answer is correct. For other disciplines, this may indicate control issues that void split times to and from this control.
+        </xsd:documentation>
+      </xsd:annotation>
+    </xsd:attribute>
     <xsd:attribute name="modifyTime" type="xsd:dateTime" use="optional"/>
   </xsd:complexType>
 
