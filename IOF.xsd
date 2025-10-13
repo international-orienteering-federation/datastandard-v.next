@@ -440,7 +440,7 @@
         <xsd:attribute name="type" type="xsd:string" use="optional">
           <xsd:annotation>
             <xsd:documentation>
-              The issuer of the identity, e.g. World Ranking List.
+              The issuer of the identity, e.g. World Ranking List. Identifiers issued by the International Orienteering Federation (IOF) must have type="IOF".
             </xsd:documentation>
           </xsd:annotation>
         </xsd:attribute>
@@ -586,7 +586,13 @@
       </xsd:documentation>
     </xsd:annotation>
     <xsd:sequence>
-      <xsd:element name="Id" type="Id" minOccurs="0"/>
+      <xsd:element name="Id" type="Id" minOccurs="0" maxOccurs="unbounded">
+        <xsd:annotation>
+          <xsd:documentation>
+            The identifier of the organisation. Multiple identifiers can be included, e.g. when there is both a national federation identifier and an international database identifier for the organisation.
+          </xsd:documentation>
+        </xsd:annotation>
+      </xsd:element>
       <xsd:element name="Name" type="xsd:string">
         <xsd:annotation>
           <xsd:documentation>
@@ -691,7 +697,7 @@
 
   <xsd:complexType name="Event" mixed="false">
     <xsd:sequence>
-      <xsd:element name="Id" type="Id" minOccurs="0"/>
+      <xsd:element name="Id" type="Id" minOccurs="0" maxOccurs="unbounded"/>
       <xsd:element name="Name" type="xsd:string"/>
       <xsd:element name="StartTime" type="DateAndOptionalTime" minOccurs="0">
         <xsd:annotation>
