@@ -2,26 +2,27 @@
 <!--
 
   ###############################################################################
-  ##   INTERNATIONAL ORIENTEERING FEDERATION INTERFACE STANDARD, VERSION 3.0   ##
+  ##   INTERNATIONAL ORIENTEERING FEDERATION INTERFACE STANDARD, VERSION 4.0   ##
   ###############################################################################
 
 -->
 
-<xsd:schema xmlns="http://www.orienteering.org/datastandard/3.0"
+<xsd:schema xmlns="http://orienteering.sport/datastandard/4"
             xmlns:xsd="http://www.w3.org/2001/XMLSchema"
-            targetNamespace="http://www.orienteering.org/datastandard/3.0"
+            targetNamespace="http://orienteering.sport/datastandard/4"
             elementFormDefault="qualified"
             xml:lang="en"
-            version="3.0">
+            version="4.0">
   <xsd:import namespace="http://www.w3.org/XML/1998/namespace"/>
 
   <xsd:annotation>
     <xsd:documentation>
-      This XML schema describes the IOF interface standard exchange format for a wide selection of orienteering information. The schema supersedes the previous version 2.0.3.
+      This XML schema describes the IOF interface standard exchange format for a wide selection of orienteering information.
 
-      Website: https://orienteering.sport/iof/it/data-standard-3-0/
-      Author:  Mats Troeng
-      Date:    December 2012
+      Website:         https://orienteering.sport/datastandard
+      Schema Location: https://orienteering.sport/datastandard/4.0.xsd
+      Author:          Mats Troeng
+      Maintainer:      IOF IT Commission
 
       For a formal description of XML Schema datatypes, visit https://www.w3.org/TR/xmlschema-2/.
     </xsd:documentation>
@@ -36,7 +37,7 @@
         The base message element that all message elements extend.
       </xsd:documentation>
     </xsd:annotation>
-    <xsd:attribute name="iofVersion" type="xsd:string" use="required" fixed="3.0">
+    <xsd:attribute name="iofVersion" type="xsd:string" use="required" fixed="4.0">
       <xsd:annotation>
         <xsd:documentation>
           The version of the IOF Interface Standard that the file conforms to.
