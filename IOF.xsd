@@ -3814,6 +3814,13 @@
         </xsd:annotation>
       </xsd:element>
     </xsd:sequence>
+    <xsd:attribute name="voided" type="xsd:boolean" use="optional" default="false">
+      <xsd:annotation>
+        <xsd:documentation>
+          Indicates that this course part has been voided. For Trail-O, this means no answer is correct for all the controls included in this part. For other disciplines, this may indicate control issues that void split times of the controls included in this part.
+        </xsd:documentation>
+      </xsd:annotation>
+    </xsd:attribute>
     <xsd:attribute name="partType" use="optional">
       <xsd:annotation>
         <xsd:documentation>
