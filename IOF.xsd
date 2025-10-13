@@ -20,7 +20,7 @@
       This XML schema describes the IOF interface standard exchange format for a wide selection of orienteering information.
 
       Website:         https://orienteering.sport/datastandard
-      Schema Location: https://orienteering.sport/datastandard/4.0/IOF.xsd
+      Schema Location: https://orienteering.sport/datastandard/4.0.xsd
       Author:          Mats Troeng
       Maintainer:      IOF IT Commission
 
