@@ -3814,13 +3814,6 @@
         </xsd:annotation>
       </xsd:element>
     </xsd:sequence>
-    <xsd:attribute name="partNumber" type="xsd:integer" use="optional">
-      <xsd:annotation>
-        <xsd:documentation>
-          The ordinal number of this part in the course.
-        </xsd:documentation>
-      </xsd:annotation>
-    </xsd:attribute>
     <xsd:attribute name="partType" use="optional">
       <xsd:annotation>
         <xsd:documentation>
