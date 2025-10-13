@@ -569,7 +569,7 @@
   <xsd:complexType name="Score">
     <xsd:annotation>
       <xsd:documentation>
-        A score related to the event. This can represent either points earned during the competition (e.g. in Trail-O or Score-O events) or scores calculated after the race (e.g. ranking points). The 'type' attribute is used to specify which purpose.
+        A score related to the event. This can represent either points earned during the competition (e.g. in Trail-O or Score-O events) or scores calculated after the race (e.g. ranking points). The 'type' attribute is used to specify which purpose. The score value represents the final score after all penalties have been applied.
       </xsd:documentation>
     </xsd:annotation>
     <xsd:simpleContent>
@@ -578,6 +578,20 @@
           <xsd:annotation>
             <xsd:documentation>
               The type of score. Use "Points" for points earned during competition (Trail-O, Score-O) or other values as needed.
+            </xsd:documentation>
+          </xsd:annotation>
+        </xsd:attribute>
+        <xsd:attribute name="gross" type="xsd:double" use="optional">
+          <xsd:annotation>
+            <xsd:documentation>
+              The gross score before penalties (e.g., correct answers in Trail-O/Pro-O, or controls visited in Score-O). Relevant when type="Points".
+            </xsd:documentation>
+          </xsd:annotation>
+        </xsd:attribute>
+        <xsd:attribute name="penalty" type="xsd:double" use="optional">
+          <xsd:annotation>
+            <xsd:documentation>
+              Penalty points (positive value, implicit subtraction). Relevant when type="Points" in competitions with time penalties or other deductions.
             </xsd:documentation>
           </xsd:annotation>
         </xsd:attribute>
