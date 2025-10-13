@@ -2581,6 +2581,13 @@
           </xsd:documentation>
         </xsd:annotation>
       </xsd:element>
+      <xsd:element name="Result" type="OverallResult" minOccurs="0">
+        <xsd:annotation>
+          <xsd:documentation>
+            Holds the overall result for the team after all completed legs. This provides direct access to the team's position, time, time behind, status, and score without needing to navigate through team members. When present, this should reflect the same information as the OverallResult of the team member running the last completed leg (or the last leg in case of parallel legs). This element is optional for backward compatibility.
+          </xsd:documentation>
+        </xsd:annotation>
+      </xsd:element>
       <xsd:element name="AssignedFee" type="AssignedFee" minOccurs="0" maxOccurs="unbounded">
         <xsd:annotation>
           <xsd:documentation>
