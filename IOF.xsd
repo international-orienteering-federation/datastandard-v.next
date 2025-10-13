@@ -3764,6 +3764,80 @@
     </xsd:sequence>
   </xsd:complexType>
 
+  <xsd:complexType name="CoursePart">
+    <xsd:annotation>
+      <xsd:documentation>
+        Defines a logical part or section of a course. Useful for Trail-O to group controls by type (Classic PreO, Timed) or for other disciplines to group controls with different ordering rules.
+      </xsd:documentation>
+    </xsd:annotation>
+    <xsd:sequence>
+      <xsd:element name="Name" type="xsd:string" minOccurs="0">
+        <xsd:annotation>
+          <xsd:documentation>
+            The name of the course part.
+          </xsd:documentation>
+        </xsd:annotation>
+      </xsd:element>
+      <xsd:element name="Length" type="xsd:double" minOccurs="0">
+        <xsd:annotation>
+          <xsd:documentation>
+            The length of this part of the course, in meters.
+          </xsd:documentation>
+        </xsd:annotation>
+      </xsd:element>
+      <xsd:element name="Climb" type="xsd:double" minOccurs="0">
+        <xsd:annotation>
+          <xsd:documentation>
+            The climb of this part of the course, in meters.
+          </xsd:documentation>
+        </xsd:annotation>
+      </xsd:element>
+      <xsd:element name="CourseControl" type="CourseControl" minOccurs="1" maxOccurs="unbounded">
+        <xsd:annotation>
+          <xsd:documentation>
+            The controls in this part of the course, including start and finish (if present).
+          </xsd:documentation>
+        </xsd:annotation>
+      </xsd:element>
+      <xsd:element name="MapId" type="xsd:integer" minOccurs="0">
+        <xsd:annotation>
+          <xsd:documentation>
+            The id of the map used for this course part.
+          </xsd:documentation>
+        </xsd:annotation>
+      </xsd:element>
+      <xsd:element name="Extensions" type="Extensions" minOccurs="0">
+        <xsd:annotation>
+          <xsd:documentation>
+            Container element for custom elements from other schemas.
+          </xsd:documentation>
+        </xsd:annotation>
+      </xsd:element>
+    </xsd:sequence>
+    <xsd:attribute name="partNumber" type="xsd:integer" use="optional">
+      <xsd:annotation>
+        <xsd:documentation>
+          The ordinal number of this part in the course.
+        </xsd:documentation>
+      </xsd:annotation>
+    </xsd:attribute>
+    <xsd:attribute name="partType" use="optional">
+      <xsd:annotation>
+        <xsd:documentation>
+          The type of course part. For Trail-O: PreO or Timed. For other disciplines: use RandomOrder for controls that can be visited in any order, otherwise leave empty.
+        </xsd:documentation>
+      </xsd:annotation>
+      <xsd:simpleType>
+        <xsd:restriction base="xsd:NMTOKEN">
+          <xsd:enumeration value="PreO"/>
+          <xsd:enumeration value="Timed"/>
+          <xsd:enumeration value="RandomOrder"/>
+          <xsd:enumeration value="Other"/>
+        </xsd:restriction>
+      </xsd:simpleType>
+    </xsd:attribute>
+  </xsd:complexType>
+
   <xsd:complexType name="Course">
     <xsd:annotation>
       <xsd:documentation>
@@ -3800,13 +3874,22 @@
           </xsd:documentation>
         </xsd:annotation>
       </xsd:element>
-      <xsd:element name="CourseControl" type="CourseControl" minOccurs="2" maxOccurs="unbounded">
-        <xsd:annotation>
-          <xsd:documentation>
-            The controls, including start and finish, that the course is made up of.
-          </xsd:documentation>
-        </xsd:annotation>
-      </xsd:element>
+      <xsd:choice>
+        <xsd:element name="CoursePart" type="CoursePart" minOccurs="1" maxOccurs="unbounded">
+          <xsd:annotation>
+            <xsd:documentation>
+              Defines logical parts or sections of the course. Use this to group controls by type (e.g., Trail-O PreO/Timed sections) or ordering rules.
+            </xsd:documentation>
+          </xsd:annotation>
+        </xsd:element>
+        <xsd:element name="CourseControl" type="CourseControl" minOccurs="2" maxOccurs="unbounded">
+          <xsd:annotation>
+            <xsd:documentation>
+              The controls, including start and finish, that the course is made up of. Use this for a flat course structure.
+            </xsd:documentation>
+          </xsd:annotation>
+        </xsd:element>
+      </xsd:choice>
       <xsd:element name="MapId" type="xsd:integer" minOccurs="0">
         <xsd:annotation>
           <xsd:documentation>
@@ -3957,7 +4040,7 @@
     <xsd:attribute name="randomOrder" type="xsd:boolean" use="optional" default="false">
       <xsd:annotation>
         <xsd:documentation>
-          Non-broken sequences of course controls having randomOrder set to true can be visited in an arbitrary order.
+          Non-broken sequences of course controls having randomOrder set to true can be visited in an arbitrary order. For courses using CoursePart structure, prefer using partType="RandomOrder" instead.
         </xsd:documentation>
       </xsd:annotation>
     </xsd:attribute>
