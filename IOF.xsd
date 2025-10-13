@@ -1684,6 +1684,13 @@
           </xsd:documentation>
         </xsd:annotation>
       </xsd:element>
+      <xsd:element name="Status" type="EntryStatus" minOccurs="0">
+        <xsd:annotation>
+          <xsd:documentation>
+            The status of the competitor at entry time. Used to indicate if the person is entering as NotCompeting or has other known status conditions.
+          </xsd:documentation>
+        </xsd:annotation>
+      </xsd:element>
       <xsd:element name="Extensions" type="Extensions" minOccurs="0">
         <xsd:annotation>
           <xsd:documentation>
@@ -1837,6 +1844,13 @@
         <xsd:annotation>
           <xsd:documentation>
             The fees that this particular person has to pay when entering the event. In a multi-race event, there is usually one element for each race. Fees assigned to the team as a whole should be defined in the TeamEntry element.
+          </xsd:documentation>
+        </xsd:annotation>
+      </xsd:element>
+      <xsd:element name="Status" type="EntryStatus" minOccurs="0">
+        <xsd:annotation>
+          <xsd:documentation>
+            The status of the team member at entry time. Used to indicate if the team is entering as NotCompeting or has other known status conditions.
           </xsd:documentation>
         </xsd:annotation>
       </xsd:element>
@@ -2094,6 +2108,13 @@
           </xsd:documentation>
         </xsd:annotation>
       </xsd:element>
+      <xsd:element name="Status" type="EntryStatus" minOccurs="0">
+        <xsd:annotation>
+          <xsd:documentation>
+            The status of the competitor in the start list. Used to indicate if the person is starting as NotCompeting or has other known status conditions.
+          </xsd:documentation>
+        </xsd:annotation>
+      </xsd:element>
       <xsd:element name="Extensions" type="Extensions" minOccurs="0">
         <xsd:annotation>
           <xsd:documentation>
@@ -2284,6 +2305,13 @@
         <xsd:annotation>
           <xsd:documentation>
             Defines the services requested by the team member.
+          </xsd:documentation>
+        </xsd:annotation>
+      </xsd:element>
+      <xsd:element name="Status" type="EntryStatus" minOccurs="0">
+        <xsd:annotation>
+          <xsd:documentation>
+            The status of the team member in the start list. Used to indicate if the person is starting as NotCompeting or has other known status conditions.
           </xsd:documentation>
         </xsd:annotation>
       </xsd:element>
@@ -3012,6 +3040,24 @@
           </xsd:documentation>
         </xsd:annotation>
       </xsd:enumeration>
+    </xsd:restriction>
+  </xsd:simpleType>
+
+  <xsd:simpleType name="EntryStatus">
+    <xsd:annotation>
+      <xsd:documentation>
+        Status values applicable for entries and start lists.
+        This is a subset of ResultStatus, containing only values meaningful before or at the time of the race start.
+      </xsd:documentation>
+    </xsd:annotation>
+    <xsd:restriction base="ResultStatus">
+      <xsd:enumeration value="NotCompeting"/>
+      <xsd:enumeration value="Cancelled"/>
+      <xsd:enumeration value="Moved"/>
+      <xsd:enumeration value="MovedUp"/>
+      <xsd:enumeration value="DidNotStart"/>
+      <xsd:enumeration value="DidNotEnter"/>
+      <xsd:enumeration value="Disqualified"/>
     </xsd:restriction>
   </xsd:simpleType>
 
