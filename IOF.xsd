@@ -3042,12 +3042,25 @@
           </xsd:documentation>
         </xsd:annotation>
       </xsd:element>
-      <xsd:element name="Time" type="xsd:double" minOccurs="0">
+      <xsd:element name="Time" minOccurs="0" maxOccurs="2">
         <xsd:annotation>
           <xsd:documentation>
-            The time in seconds used to give the answer, in case of a timed control. Fractions of seconds (e.g. 258.7) may be used if the time resolution is higher than one second.
+            The time in seconds used to give the answer, in case of a timed control, or the penalty time for a wrong answer. Fractions of seconds (e.g. 258.7) may be used if the time resolution is higher than one second.
           </xsd:documentation>
         </xsd:annotation>
+        <xsd:complexType>
+          <xsd:simpleContent>
+            <xsd:extension base="xsd:double">
+              <xsd:attribute name="type" type="xsd:string" use="optional">
+                <xsd:annotation>
+                  <xsd:documentation>
+                    The type of time. Valid values are "Answer" (time to give the answer, default) and "Penalty" (penalty time for wrong answer, default 0).
+                  </xsd:documentation>
+                </xsd:annotation>
+              </xsd:attribute>
+            </xsd:extension>
+          </xsd:simpleContent>
+        </xsd:complexType>
       </xsd:element>
       <xsd:element name="Extensions" type="Extensions" minOccurs="0">
         <xsd:annotation>
