@@ -440,7 +440,7 @@
         <xsd:attribute name="type" type="xsd:string" use="optional">
           <xsd:annotation>
             <xsd:documentation>
-              The issuer of the identity, e.g. World Ranking List.
+              The issuer of the identity, e.g. World Ranking List. Identifiers issued by the International Orienteering Federation (IOF) must have type="IOF".
             </xsd:documentation>
           </xsd:annotation>
         </xsd:attribute>
