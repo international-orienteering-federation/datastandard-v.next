@@ -569,12 +569,32 @@
   <xsd:complexType name="Score">
     <xsd:annotation>
       <xsd:documentation>
-        The score earned in an event for some purpose, e.g. a ranking list. The 'type' attribute is used to specify which purpose.
+        A score related to the event. This can represent either points earned during the competition (e.g. in Trail-O or Score-O events) or scores calculated after the race (e.g. ranking points). The 'type' attribute is used to specify which purpose. The score value represents the final score after all penalties have been applied.
       </xsd:documentation>
     </xsd:annotation>
     <xsd:simpleContent>
       <xsd:extension base="xsd:double">
-        <xsd:attribute name="type" type="xsd:string" use="optional"/>
+        <xsd:attribute name="type" type="xsd:string" use="optional">
+          <xsd:annotation>
+            <xsd:documentation>
+              The type of score. Use "Points" for points earned during competition (Trail-O, Score-O) or other values as needed.
+            </xsd:documentation>
+          </xsd:annotation>
+        </xsd:attribute>
+        <xsd:attribute name="gross" type="xsd:double" use="optional">
+          <xsd:annotation>
+            <xsd:documentation>
+              The gross score before penalties (e.g., correct answers in Trail-O/Pro-O, or controls visited in Score-O). Relevant when type="Points".
+            </xsd:documentation>
+          </xsd:annotation>
+        </xsd:attribute>
+        <xsd:attribute name="penalty" type="xsd:double" use="optional">
+          <xsd:annotation>
+            <xsd:documentation>
+              Penalty points (positive value, implicit subtraction). Relevant when type="Points" in competitions with time penalties or other deductions.
+            </xsd:documentation>
+          </xsd:annotation>
+        </xsd:attribute>
       </xsd:extension>
     </xsd:simpleContent>
   </xsd:complexType>
@@ -2462,7 +2482,7 @@
       <xsd:element name="Score" type="Score" minOccurs="0" maxOccurs="unbounded">
         <xsd:annotation>
           <xsd:documentation>
-            Any scores that are attached to the result, e.g. World Ranking points.
+            Any scores that are attached to the result. This can include points earned during the competition (e.g. in Trail-O or Score-O events) or scores calculated after the race (e.g. World Ranking points).
           </xsd:documentation>
         </xsd:annotation>
       </xsd:element>
@@ -2776,7 +2796,7 @@
       <xsd:element name="Score" type="Score" minOccurs="0" maxOccurs="unbounded">
         <xsd:annotation>
           <xsd:documentation>
-            Any scores that are attached to the result, e.g. World Ranking points.
+            Any scores that are attached to the result. This can include points earned during the competition (e.g. in Trail-O or Score-O events) or scores calculated after the race (e.g. World Ranking points).
           </xsd:documentation>
         </xsd:annotation>
       </xsd:element>
@@ -2886,7 +2906,7 @@
       <xsd:element name="Score" type="Score" minOccurs="0" maxOccurs="unbounded">
         <xsd:annotation>
           <xsd:documentation>
-            Any scores that are attached to the result, e.g. World Ranking points.
+            Any scores that are attached to the result. This can include points earned during the competition (e.g. in Trail-O or Score-O events) or scores calculated after the race (e.g. World Ranking points).
           </xsd:documentation>
         </xsd:annotation>
       </xsd:element>
@@ -3036,12 +3056,25 @@
           </xsd:documentation>
         </xsd:annotation>
       </xsd:element>
-      <xsd:element name="Time" type="xsd:double" minOccurs="0">
+      <xsd:element name="Time" minOccurs="0" maxOccurs="2">
         <xsd:annotation>
           <xsd:documentation>
-            The time in seconds used to give the answer, in case of a timed control. Fractions of seconds (e.g. 258.7) may be used if the time resolution is higher than one second.
+            The time in seconds used to give the answer, in case of a timed control, or the penalty time for a wrong answer. Fractions of seconds (e.g. 258.7) may be used if the time resolution is higher than one second.
           </xsd:documentation>
         </xsd:annotation>
+        <xsd:complexType>
+          <xsd:simpleContent>
+            <xsd:extension base="xsd:double">
+              <xsd:attribute name="type" type="xsd:string" use="optional">
+                <xsd:annotation>
+                  <xsd:documentation>
+                    The type of time. Valid values are "Answer" (time to give the answer, default) and "Penalty" (penalty time for wrong answer, default 0).
+                  </xsd:documentation>
+                </xsd:annotation>
+              </xsd:attribute>
+            </xsd:extension>
+          </xsd:simpleContent>
+        </xsd:complexType>
       </xsd:element>
       <xsd:element name="Extensions" type="Extensions" minOccurs="0">
         <xsd:annotation>
