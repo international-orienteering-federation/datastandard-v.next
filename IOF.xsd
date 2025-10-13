@@ -1408,13 +1408,6 @@
         </xsd:annotation>
       </xsd:element>
       <xsd:element name="FirstStart" type="xsd:dateTime" minOccurs="0"/>
-      <xsd:element name="MaxTime" type="xsd:double" minOccurs="0">
-        <xsd:annotation>
-          <xsd:documentation>
-            The maximum time, in seconds, allowed to complete the course. The meaning depends on the discipline: in Foot-O/Mtb-O/Ski-O, competitors exceeding this time will receive an OverTime status; in Pre-O and Pre-O Sprint, competitors exceeding this time will receive a score penalty. Fractions of seconds (e.g. 3600.0) may be used if needed.
-          </xsd:documentation>
-        </xsd:annotation>
-      </xsd:element>
       <xsd:element name="Status" type="RaceClassStatus" minOccurs="0">
         <xsd:annotation>
           <xsd:documentation>
@@ -3818,6 +3811,13 @@
         <xsd:annotation>
           <xsd:documentation>
             The id of the map used for this course.
+          </xsd:documentation>
+        </xsd:annotation>
+      </xsd:element>
+      <xsd:element name="MaxTime" type="xsd:double" minOccurs="0">
+        <xsd:annotation>
+          <xsd:documentation>
+            The maximum time, in seconds, allowed to complete the course. The meaning depends on the discipline: in Foot-O/Mtb-O/Ski-O, competitors exceeding this time will receive an OverTime status; in Pre-O and Pre-O Sprint, competitors exceeding this time will receive a score penalty. Fractions of seconds (e.g. 3600.0) may be used if needed.
           </xsd:documentation>
         </xsd:annotation>
       </xsd:element>
