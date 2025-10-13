@@ -2259,6 +2259,13 @@
           </xsd:documentation>
         </xsd:annotation>
       </xsd:element>
+      <xsd:element name="MassStart" type="xsd:boolean" minOccurs="0">
+        <xsd:annotation>
+          <xsd:documentation>
+            Indicates whether this team member started in a mass start for a later leg. According to IOF rules, teams taking part in mass starts for later legs are ranked using the sum of individual times and placed after all teams that changed over normally.
+          </xsd:documentation>
+        </xsd:annotation>
+      </xsd:element>
       <xsd:element name="Course" type="SimpleCourse" minOccurs="0">
         <xsd:annotation>
           <xsd:documentation>
@@ -2697,6 +2704,13 @@
         <xsd:annotation>
           <xsd:documentation>
             The time, in seconds, that is shown in the result list. Fractions of seconds (e.g. 258.7) may be used if the time resolution is higher than one second.
+          </xsd:documentation>
+        </xsd:annotation>
+      </xsd:element>
+      <xsd:element name="MassStart" type="xsd:boolean" minOccurs="0">
+        <xsd:annotation>
+          <xsd:documentation>
+            Indicates whether this team member started in a mass start for a later leg. According to IOF rules, teams taking part in mass starts for later legs are ranked using the sum of individual times and placed after all teams that changed over normally.
           </xsd:documentation>
         </xsd:annotation>
       </xsd:element>
