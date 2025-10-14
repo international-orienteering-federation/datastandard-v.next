@@ -3771,6 +3771,7 @@
       </xsd:documentation>
     </xsd:annotation>
     <xsd:sequence>
+      <xsd:element name="Id" type="Id" minOccurs="0"/>
       <xsd:element name="Name" type="xsd:string" minOccurs="0">
         <xsd:annotation>
           <xsd:documentation>
