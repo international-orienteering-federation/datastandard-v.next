@@ -3060,13 +3060,22 @@
       </xsd:documentation>
     </xsd:annotation>
     <xsd:sequence>
-      <xsd:element name="ControlCode" type="xsd:string">
-        <xsd:annotation>
-          <xsd:documentation>
-            The code of the control.
-          </xsd:documentation>
-        </xsd:annotation>
-      </xsd:element>
+      <xsd:choice>
+        <xsd:element name="ControlCode" type="xsd:string">
+          <xsd:annotation>
+            <xsd:documentation>
+              The code of the control.
+            </xsd:documentation>
+          </xsd:annotation>
+        </xsd:element>
+        <xsd:element name="CoursePart" type="xsd:string">
+          <xsd:annotation>
+            <xsd:documentation>
+              The name of the course part.
+            </xsd:documentation>
+          </xsd:annotation>
+        </xsd:element>
+      </xsd:choice>
       <xsd:element name="Time" type="xsd:double" minOccurs="0">
         <xsd:annotation>
           <xsd:documentation>
