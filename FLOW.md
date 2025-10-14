@@ -22,7 +22,7 @@ Here is an example of a flow involving all the supported items:
 flowchart TD
   EVDB["Event calendar"]
   PEDB["Competitor Registry"]
-  RP["Results portal"]
+  RP["Results Portal"]
   CCL["Control cards<br>for renting"]
   EVDB@{ shape: cyl}
   PEDB@{ shape: cyl}
@@ -32,9 +32,9 @@ flowchart TD
   PEDB--CompetitorList-->ES[Entry System]
   PEDB--OrganisationList-->ES[Entry System]
 
-  ES--ClassList-->RM[Race Management]
-  ES--EntryList-->RM[Race Management]
-  ES--ServiceRequestList-->RM[Race Management]
+  ES--ClassList-->RM[Race Management<br>Software]
+  ES--EntryList-->RM
+  ES--ServiceRequestList-->RM
 
   CS[Course Setting<br>Software]--CourseData-->RM
 
@@ -88,10 +88,10 @@ IOF Datastandard schemas involved:
 
 flowchart TD
   ES[Entry System]
-
-  ES--ClassList-->RM[Race Management]
-  ES--EntryList-->RM[Race Management]
-  ES--ServiceRequestList-->RM[Race Management]
+RM[Race Management<br>Software]
+  ES--ClassList-->RM
+  ES--EntryList-->RM
+  ES--ServiceRequestList-->RM
 
 ```
 
@@ -102,7 +102,7 @@ In order to check the sequence of the visited controls, the race management soft
 ```mermaid
 
 flowchart TD
-  RM[Race Management]
+  RM[Race Management<br>Software]
 
   CS[Course Setting<br>Software]--CourseData-->RM
 
@@ -122,7 +122,7 @@ flowchart TD
   CCL["Control cards<br>for renting"]
   CCL@{ shape: cyl}
 
-  RM[Race Management]
+  RM[Race Management<br>Software]
   CCL--ControlCardList-->RM
 ```
 
@@ -137,7 +137,7 @@ In order to share the starting lists and final rankings with participants, the r
 ```mermaid
 
 flowchart TD
-  RM[Race Management]
+  RM[Race Management<br>Software]
   RM--StartList-->RP
   RM--ResultList-->RP["Result portal"]
 ```
