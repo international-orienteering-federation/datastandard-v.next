@@ -3068,10 +3068,10 @@
             </xsd:documentation>
           </xsd:annotation>
         </xsd:element>
-        <xsd:element name="CoursePart" type="xsd:string">
+        <xsd:element name="CoursePartId" type="xsd:string">
           <xsd:annotation>
             <xsd:documentation>
-              The name of the course part.
+              The id of the course part.
             </xsd:documentation>
           </xsd:annotation>
         </xsd:element>
