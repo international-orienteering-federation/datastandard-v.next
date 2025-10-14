@@ -473,6 +473,13 @@
       <xsd:element name="Nationality" type="Country" minOccurs="0"/>
       <xsd:element name="Address" type="Address" minOccurs="0" maxOccurs="unbounded"/>
       <xsd:element name="Contact" type="Contact" minOccurs="0" maxOccurs="unbounded"/>
+      <xsd:element name="PhysicalImpairment" type="xsd:string" minOccurs="0" maxOccurs="unbounded">
+        <xsd:annotation>
+          <xsd:documentation>
+            Physical impairment classification for Trail-O P Class eligibility. Allows separate result lists for competitors with recognized impairments. Examples: MI (Mobility Impairment), CP (Cardiac/Cardiopulmonary), NI (Neurological Impairment). Additional values may be defined by the IOF in future.
+          </xsd:documentation>
+        </xsd:annotation>
+      </xsd:element>
       <xsd:element name="Extensions" type="Extensions" minOccurs="0">
         <xsd:annotation>
           <xsd:documentation>
@@ -488,13 +495,6 @@
           <xsd:enumeration value="M"/>
         </xsd:restriction>
       </xsd:simpleType>
-    </xsd:attribute>
-    <xsd:attribute name="physicalImpairment" type="xsd:string" use="optional">
-      <xsd:annotation>
-        <xsd:documentation>
-          Physical impairment classification for Trail-O P Class eligibility. Allows separate result lists for competitors with recognized impairments. Examples: MI (Mobility Impairment), CP (Cardiac/Cardiopulmonary), NI (Neurological Impairment). Additional values may be defined by the IOF in future.
-        </xsd:documentation>
-      </xsd:annotation>
     </xsd:attribute>
     <xsd:attribute name="modifyTime" type="xsd:dateTime" use="optional"/>
   </xsd:complexType>
