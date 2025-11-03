@@ -2956,10 +2956,10 @@
           </xsd:documentation>
         </xsd:annotation>
       </xsd:enumeration>
-      <xsd:enumeration value="OverTime">
+      <xsd:enumeration value="ExceededTimeLimit">
         <xsd:annotation>
           <xsd:documentation>
-            Overtime, i.e. did not finish within the maximum time set by the organiser.
+            Did not finish within the maximum time set by the organiser.
           </xsd:documentation>
         </xsd:annotation>
       </xsd:enumeration>
