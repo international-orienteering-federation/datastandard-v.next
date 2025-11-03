@@ -2956,7 +2956,7 @@
           </xsd:documentation>
         </xsd:annotation>
       </xsd:enumeration>
-      <xsd:enumeration value="ExceedingMaxTime">
+      <xsd:enumeration value="ExceededTimeLimit">
         <xsd:annotation>
           <xsd:documentation>
             Did not finish within the maximum time set by the organiser.
