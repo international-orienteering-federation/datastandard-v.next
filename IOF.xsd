@@ -1663,6 +1663,13 @@
           </xsd:documentation>
         </xsd:annotation>
       </xsd:element>
+      <xsd:element name="BookingReference" type="xsd:string" minOccurs="0" maxOccurs="unbounded">
+        <xsd:annotation>
+          <xsd:documentation>
+            Identifier for the booking in which the entry was created.
+          </xsd:documentation>
+        </xsd:annotation>
+      </xsd:element>
       <xsd:element name="ServiceRequest" type="ServiceRequest" minOccurs="0" maxOccurs="unbounded">
         <xsd:annotation>
           <xsd:documentation>
@@ -1742,6 +1749,12 @@
         <xsd:annotation>
           <xsd:documentation>
             The fees that the team as a whole has to pay when entering the event. In a multi-race event, there is usually one element for each race. If there are differentated fees for the team members, specify them in the TeamEntryPerson elements.
+          </xsd:documentation>
+        </xsd:annotation>
+      <xsd:element name="BookingReference" type="xsd:string" minOccurs="0" maxOccurs="unbounded">
+        <xsd:annotation>
+          <xsd:documentation>
+            Identifier for the booking in which the entry was created.
           </xsd:documentation>
         </xsd:annotation>
       </xsd:element>
